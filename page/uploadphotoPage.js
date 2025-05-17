@@ -23,7 +23,12 @@ class UploadPhotoPage{
         await this.page.waitForTimeout(1000);
         await this.uploadbtn.click();
         await this.page.waitForTimeout(1000);
-        await this.updatebtn.click()
+        await this.updatebtn.click();
+        await this.page.evaluate(() => {
+        window.scrollBy(0, -300);
+         });
+        await this.profileicon.click();
+        await this.logoutbtn.click();
     }
 
 
