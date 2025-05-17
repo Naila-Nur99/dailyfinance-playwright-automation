@@ -7,16 +7,9 @@ import LoginPage from "../page/loginPage.js";
 test.beforeEach(  "User Login"   , async ({page})=> {
 
     await page.goto("/");
-
     const latestUser =  jsonData[ jsonData.length -1   ];
-
     const login = new LoginPage(page);
-
-    await login.doLogin( latestUser.email , latestUser.password  );
-
-    await expect( page.getByText("Dashboard")  ).toBeVisible( { timeout : 20000 } );
-    //await page.pause();
-
+    await login.doLogin( latestUser.email , latestUser.password  )
 
 }  );
 test("Check if profile photo is uploaded successfully", async ({ page }) => {

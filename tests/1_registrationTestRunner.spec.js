@@ -6,7 +6,7 @@ import RegistrationPage from '../page/registrationPage.js';
 import {generateRandomId} from '../utils/utils.js';
 import { getEmailList, getEmailRead } from '../utils/utils.js';
 
-test( "Check if toast message get successfully"  , async ({page}) => {
+test( "Check if both toast message and congratulations mail get successfully"  , async ({page ,request}) => {
   
     await page.goto("/");
 
@@ -25,26 +25,23 @@ test( "Check if toast message get successfully"  , async ({page}) => {
 
 
    await reg.registerUser(userModel);
-   const toastLocator = page.locator(".Toastify__toast");
-    await toastLocator.waitFor({ timeout: 20000 });
+   await page.waitForTimeout(5000);
+
+    const toastLocator = page.locator(".Toastify__toast");
     const msg = await toastLocator.textContent();
     expect(msg).toContain("successfully");
 
-    await page.waitForTimeout(1000);
+    const mailBody = await getEmailRead({ request });
+    expect(mailBody).toContain("Welcome to our platform");
 
     jsonData.push(userModel);
-
     fs.writeFileSync("./utils/userData.json"  , JSON.stringify(jsonData,null ,2)  );
+
+    // npx playwright test registrationTestRunner.spec.js
 
 
 })
 
-test("Check if congratulations email received", async ({ request, page }) => {
-  
-  await page.waitForTimeout(1000); // wait 20 seconds
-  const mailBody = await getEmailRead({ request });
-  expect(mailBody).toContain("Welcome to our platform");
-});
 
 
 

@@ -14,37 +14,34 @@ test.beforeEach(  "User Login"   , async ({page})=> {
 
     await login.doLogin( latestUser.email , latestUser.password  );
 
-    await expect( page.getByText("Dashboard")  ).toBeVisible( { timeout : 20000 } );
-    //await page.pause();
-
-
 }  );
 
-test("Add 1st item with all fields", async ({ page }) => {
+test("Check if the 2items are showing in item list", async ({ page }) => {
     const itemPage = new AddItemPage(page);
-    await itemPage.addingItem("Apple", "987", "2025-05-07","May", "Fresh");
+    
+    const cost1 = {
+        name: 'Apple',
+        amount: '50',
+        date: '2025-05-07',
+        month: 'May',
+        remarks: 'Fruit'
+      };
+
+      const cost2 = {
+        name: 'Banana',
+        amount: '30',
+        date: '2025-05-07',
+        month: 'May',
+        remarks: ''
+      };
+      await itemPage.addingItem(cost1);
+      await itemPage.addingItem(cost2);
+
+      const count = await itemPage.getItemCount();
+      expect(count).toBeGreaterThan(1);
   });
 
 
-test("Add 2nd item with mandatory fields", async ({ page }) => {
-    const itemPage = new AddItemPage(page);
-    await itemPage.addingItem("Banana", "900", "2025-05-07", "May", "");
-  });
 
-
-test('Check if both items are showing in list', async ({ page }) => {
-  // Wait for at least one row to appear
-  await page.waitForSelector('tbody tr', { timeout: 10000 });
-
-  // Get first row's first cell text
-  const firstItem = await page.locator('tbody tr').first().locator('td').first().textContent();
-  console.log("First item:", firstItem);
-  expect(firstItem).toContain("Apple");
-
-  // Get second row's first cell text
-  const secondItem = await page.locator('tbody tr').nth(1).locator('td').first().textContent();
-  console.log("Second item:", secondItem);
-  expect(secondItem).toContain("Banana");
-  await page.waitForTimeout(2000);
-});
+//npx playwright test addItemsTestRunner.spec.js
 

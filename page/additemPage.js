@@ -11,18 +11,24 @@ class AddItemPage{
     this.monthInput = page.locator('#month');
     this.txtRemarks = page.locator('#remarks');
     this.btnSubmit = page.locator('[type=submit]');
+    this.itemRows = page.locator('table tbody tr');
 
     }
-    async addingItem(name, amount, date, month, remarks) {
+    async addingItem(costModel) {
      
     await this.btnAddCost.click();
-    await this.txtItemName.fill(name);
-    await this.btnValue.nth(2).click(); // 3rd button
-    await this.txtAmount.fill(amount);
-    await this.txtDate.fill(date);
-    await this.monthInput.selectOption(month);
-    await this.txtRemarks.fill(remarks);
+    await this.txtItemName.fill(costModel.name);
+    await this.btnValue.nth(2).click(); // quantity
+    await this.txtAmount.fill(costModel.amount);
+    await this.txtDate.fill(costModel.date);
+    await this.monthInput.selectOption(costModel.month);
+    await this.txtRemarks.fill(costModel.remarks);
     await this.btnSubmit.click();
+    await this.page.waitForTimeout(500);
+  }
+
+    async getItemCount() {
+    return await this.itemRows.count();
   }
 }
 

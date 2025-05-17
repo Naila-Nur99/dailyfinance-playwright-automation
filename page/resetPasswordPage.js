@@ -17,6 +17,7 @@ class ResetPasswordPage{
         await this.resetLink.click();
         await this.emailtxt.fill(email);
         await this.resetLnkbtn.click();
+        await this.page.waitForTimeout(5000);
         
     }
     async resetPass(newpassword,confrimpassword) {

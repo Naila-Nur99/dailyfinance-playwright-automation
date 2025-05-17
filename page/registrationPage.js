@@ -33,6 +33,8 @@ class RegistrationPage{
         await this.terms.click();
         await this.regbtn.click();
 
+    
+
     }
 
 }

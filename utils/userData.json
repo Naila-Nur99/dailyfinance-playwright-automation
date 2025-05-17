@@ -206,5 +206,53 @@
     "password": "12345",
     "phoneNumber": "01554790229",
     "address": "Alexandreaborough"
+  },
+  {
+    "firstName": "Asia",
+    "lastName": "Davis",
+    "email": "tasnimislam2334+9958@gmail.com",
+    "password": "1234",
+    "phoneNumber": "01537993862",
+    "address": "Lake Lorna"
+  },
+  {
+    "firstName": "Karl",
+    "lastName": "Block",
+    "email": "tasnimislam2334+6594@gmail.com",
+    "password": "12345",
+    "phoneNumber": "01581151258",
+    "address": "Parkerberg"
+  },
+  {
+    "firstName": "Audrey",
+    "lastName": "Johns",
+    "email": "tasnimislam2334+5768@gmail.com",
+    "password": "12345",
+    "phoneNumber": "01518310234",
+    "address": "Ivaworth"
+  },
+  {
+    "firstName": "Reta",
+    "lastName": "Walter",
+    "email": "tasnimislam2334+9104@gmail.com",
+    "password": "1234",
+    "phoneNumber": "01516474608",
+    "address": "Coon Rapids"
+  },
+  {
+    "firstName": "Modesto",
+    "lastName": "Howe",
+    "email": "tasnimislam2334+3192@gmail.com",
+    "password": "12345",
+    "phoneNumber": "01554415471",
+    "address": "Port Brody"
+  },
+  {
+    "firstName": "Veda",
+    "lastName": "Senger",
+    "email": "tasnimislam2334+3753@gmail.com",
+    "password": "12345",
+    "phoneNumber": "01555911088",
+    "address": "Kuphalside"
   }
 ]
