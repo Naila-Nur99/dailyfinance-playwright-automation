@@ -45,7 +45,7 @@ This project automates an end-to-end user flow on [Daily Finance](https://dailyf
 
 - **Report of Allure Behavior:**
 
-  <img width="744" alt="task-1" src="https://github.com/user-attachments/assets/8c51008b-3ab4-4305-974c-eb6764d41bf0" />
+  <img width="744" alt="task-1" src="https://github.com/user-attachments/assets/ea8d6d19-3cbd-467e-8614-b1e6a497a140" />
 
 
 
